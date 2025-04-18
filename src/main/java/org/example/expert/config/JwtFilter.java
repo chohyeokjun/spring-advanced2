@@ -20,11 +20,13 @@ public class JwtFilter implements Filter {
 
     private final JwtUtil jwtUtil;
 
+    // 필터가 생성될 때 Servlet container가 최초 1회 호출하는 초기화 메서드
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         Filter.super.init(filterConfig);
     }
 
+    // 요청을 가로채 filter 동작
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
